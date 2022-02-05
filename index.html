@@ -4,10 +4,11 @@
     </head>
     <body>
         <p id="text">Redirecting...</p>
+        <footer>&copy;<a href="https://matt05.ml" target="_blank">Matt05 Dev</a></footer>
     <script>
         var str = window.location.href;
 
-        const afterLastSlash = str.substring(str.lastIndexOf('/') + 1);
+        const afterLastSlash = str.substring(str.lastIndexOf('/') + 1); // Get website
         
         if(afterLastSlash == "eurostreaming") {
             var xmlhttp = new XMLHttpRequest();
