@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Redirecting...</title>
+    </head>
+    <body>
+        <p id="text">Redirecting...</p>
+    <script>
+        var str = window.location.href;
+
+        const afterLastSlash = str.substring(str.lastIndexOf('/') + 1);
+        
+        if(afterLastSlash == "eurostreaming") {
+            var xmlhttp = new XMLHttpRequest();
+            var url = "./v1/"+afterLastSlash;
+
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var myArr = JSON.parse(this.responseText);
+                    console.log(myArr.message);
+                    window.location.replace(myArr.message);
+
+                } else if (this.status == 500){
+                    document.getElementById("text").innerHTML = "Error!";
+
+                    console.log("Error!");
+                }
+            };
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+
+        } else {
+            document.getElementById("text").innerHTML = "Website not valid!";
+        }
+    </script>
+    </body>
+</html>
