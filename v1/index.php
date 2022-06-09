@@ -11,7 +11,7 @@ header('Allow: GET');
 
 function getHTML($url,$timeout) {
     $gs = curl_init($url); // initialize curl with given url
-    curl_setopt($gs, CURLOPT_USERAGENT, $_SERVER["HTTP_USER_AGENT"]); // set useragent
+    curl_setopt($gs, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'); // set useragent
     curl_setopt($gs, CURLOPT_RETURNTRANSFER, true); // write the response to a variable
     curl_setopt($gs, CURLOPT_FOLLOWLOCATION, true); // follow redirects
     curl_setopt($gs, CURLOPT_CONNECTTIMEOUT, $timeout); // max. seconds
@@ -29,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
             $whatIWant = substr($html, strpos($html, "https://eurostreaming."));
             $url = substr($whatIWant, 0, strpos($whatIWant, '/"'));
             if($url == "") {
-                http_response_code(500);
-                $data = ['status' => "error", 'message' => 'URL not found!', 'code' => 500];
+                http_response_code(404);
+                $data = ['status' => "error", 'message' => 'URL not found!', 'code' => 404];
             } else {
                 http_response_code(200);
                 $data = ['message' => $url, 'status' => "success", 'code' => 200];
@@ -46,8 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
             $url = substr($url, 0, strpos($url, '"'));
 
             if($url == "") {
-                http_response_code(500);
-                $data = ['status' => "error", 'message' => 'URL not found!', 'code' => 500];
+                http_response_code(404);
+                $data = ['status' => "error", 'message' => 'URL not found!', 'code' => 404];
             } else {
                 http_response_code(200);
                 $data = ['message' => $url, 'status' => "success", 'code' => 200];
