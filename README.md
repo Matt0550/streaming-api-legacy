@@ -5,9 +5,9 @@ APIs that allow you to receive the updated URL of the most popular streaming sit
 ## API Reference
 
 #### Get url from streaming website
-
+API URL: https://api.matt05.ml/streaming-api
 ```http
-GET https://api.matt05.ml/streaming-api/v1/${website}
+GET /v1/${website}
 ```
 
 | Parameter | Description   | Available sites                  |
