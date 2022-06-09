@@ -7,12 +7,12 @@ APIs that allow you to receive the updated URL of the most popular streaming sit
 #### Get url from streaming website
 
 ```http
-GET /v1/${website}
+GET https://api.matt05.ml/streaming-api/v1/${website}
 ```
 
-| Parameter | Description     | Available sites            |
-| :-------- | :-------------- | :------------------------- |
-| `website` | **Required**.   |  `eurostreaming`           |
+| Parameter | Description   | Available sites                  |
+| :-------- | :------------ | :------------------------------- |
+| `website` | **Required**. | `eurostreaming, altadefinizione` |
 
 #### Response
 ```json

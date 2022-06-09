@@ -1,16 +1,22 @@
+<!DOCTYPE html>
+<!--
+Copyright ©Matt05 Dev
+Github: @Matt0550
+Website: https://matt05.ml
+-->
 <html>
     <head>
         <title>Redirecting...</title>
     </head>
     <body>
         <p id="text">Redirecting...</p>
-        <footer>&copy;<a href="https://matt05.ml" target="_blank">Matt05 Dev</a></footer>
+        <footer>
+            &copy;<a href="https://matt05.ml" target="_blank">Matt05 Dev</a>
+            <br>
+            Github: <a href="https://github.com/Matt0550/streaming-api/" target="_blank">Matt05 Dev</a>
+        </footer>
     <script>
-        var str = window.location.href;
-
-        const afterLastSlash = str.substring(str.lastIndexOf('/') + 1); // Get website
-        
-        if(afterLastSlash == "eurostreaming") {
+        function redirect(afterLastSlash) {
             var xmlhttp = new XMLHttpRequest();
             var url = "./v1/"+afterLastSlash;
 
@@ -27,8 +33,17 @@
                 }
             };
             xmlhttp.open("GET", url, true);
-            xmlhttp.send();
+            xmlhttp.send(); 
+        }
+        var str = window.location.href;
 
+        const afterLastSlash = str.substring(str.lastIndexOf('/') + 1); // Get website
+        
+        if(afterLastSlash == "eurostreaming") {
+            redirect(afterLastSlash);
+
+        } else if (afterLastSlash == "altadefinizione") {
+            redirect(afterLastSlash);
         } else {
             document.getElementById("text").innerHTML = "Website not valid!";
         }

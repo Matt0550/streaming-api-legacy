@@ -1,4 +1,10 @@
-<?php 
+<?php
+/*
+Copyright ©Matt05 Dev
+Github: @Matt0550
+Website: https://matt05.ml
+*/
+
 header("Content-type: application/json; charset=utf-8");
 header('Access-Control-Allow-Origin: *');
 header('Allow: GET'); 
@@ -30,6 +36,22 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
                 $data = ['message' => $url, 'status' => "success", 'code' => 200];
             }
 
+        } else if ($website == "altadefinizione") {
+            $html = getHTML("https://altadefinizione.nuovo.live/", 5);
+
+            $whatIWant = substr($html, strpos($html, 'elementor-heading-title elementor-size-default'));
+            // Get href from the string
+            $url = substr($whatIWant, strpos($whatIWant, 'href="') + 6);
+            // Get the URL
+            $url = substr($url, 0, strpos($url, '"'));
+
+            if($url == "") {
+                http_response_code(500);
+                $data = ['status' => "error", 'message' => 'URL not found!', 'code' => 500];
+            } else {
+                http_response_code(200);
+                $data = ['message' => $url, 'status' => "success", 'code' => 200];
+            }
         } else {
             http_response_code(404);
             $data = ['status' => "error", 'message' => 'Website not valid or not found', 'code' => 404];
