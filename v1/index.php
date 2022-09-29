@@ -52,6 +52,24 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
                 http_response_code(200);
                 $data = ['message' => $url, 'status' => "success", 'code' => 200];
             }
+        } else if ($website == "cb01") {
+            $html = getHTML("https://t.me/s/cb01_nuovo_indirizzo_ufficiale/", 5);
+
+            $whatIWant = substr($html, strpos($html, '<a href="https://cb01.'));
+            // Get href from the string start with https://cb01.
+            $url = substr($whatIWant, strpos($whatIWant, 'https://cb01.') + 0);
+            // Get the URL
+            $url = substr($url, 0, strpos($url, '"'));
+
+            if($url == "") {
+                http_response_code(404);
+                $data = ['status' => "error", 'message' => 'URL not found!', 'code' => 404];
+            } else {
+                http_response_code(200);
+                $data = ['message' => $url, 'status' => "success", 'code' => 200];
+            }
+
+        
         } else {
             http_response_code(404);
             $data = ['status' => "error", 'message' => 'Website not valid or not found', 'code' => 404];

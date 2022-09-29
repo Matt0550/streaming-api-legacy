@@ -12,7 +12,12 @@ GET /v1/${website}
 
 | Parameter | Description   | Available sites                  |
 | :-------- | :------------ | :------------------------------- |
-| `website` | **Required**. | `eurostreaming, altadefinizione` |
+| `website` | **Required**. | `View the list below `          |
+
+#### Available sites
+- `euroStreaming`
+- `altadefinizione`
+- `cb01`
 
 #### Response
 ```json
