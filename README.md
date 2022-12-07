@@ -1,6 +1,9 @@
 # Streaming-API-legacy
-
 APIs that allow you to receive the updated URL of the most popular streaming sites. (example. euroStreaming)
+
+# NEW VERSION
+New version of api is available here: https://github.com/Matt0550/Streaming-API
+
 
 ## API Reference
 
